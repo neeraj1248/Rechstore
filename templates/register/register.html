@@ -1,0 +1,251 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <title>RechSTORE</title>
+        {% load static %}
+        <link rel="stylesheet" href={% static 'css/register/register.css' %} type="text/css">
+    </head>
+
+    <body>
+<!--------------------------Header---------------------------------------------->
+        <header>
+            <div id="logo">
+                <a href="#"><img src={% static 'logo/logo2.png'%}></a>
+            </div>
+            <nav>
+                <ul id="login_singup">
+                    <li><a href="login">Login</a></li>
+                    <li><a href="register">Singup</a></li>
+                </ul>
+            </nav>
+        </header>
+<!--------------------------Content---------------------------------------------->
+        <div id="main_contanier">
+
+
+            <div id="login_section">
+                <div id="bor">
+                    <div id="login_text">
+                        <h2>Register Now</h2>
+                    </div>
+                    <form action="registration_validation" method="post">
+                      {% csrf_token %}
+                        <div id="login_data">
+                            <table>
+                                <tr class="row">
+                                    <div id="r1">
+                                        <td><p class="reg_text">Name</p></td>
+                                        <td><input type="text" id="nam" name="name" class="input" placeholder="Complate Name" required onblur="n_error()"></td>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"><p id="name_error" class="error"></p></td>
+                                </tr>
+
+                                <tr class="row">
+                                    <div id="r2">
+                                        <td><p class="reg_text">Email</p></td>
+                                        <td><input type="email" id="email" name="email" class="input" placeholder="Email-id" required onblur="e_error()"></td>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"><p id="mail_error" class="error"></p></td>
+                                </tr>
+
+                                <tr class="row">
+                                    <div id="r3">
+                                        <td><p class="reg_text">Phone</p></td>
+                                        <td><input type="number" id="mobile" name="mobile" class="input" placeholder="Mobile Number" required onblur="p_error()"></td>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"><p id="phone_error" class="error"></p></td>
+                                </tr>
+
+                                <tr class="row">
+                                    <div id="r4">
+                                        <td><p class="reg_text">UserName</p></td>
+                                        <td><input type="text" id="usrnam" name="username" class="input" placeholder="Choose User Name" required onblur="un_error()"></td>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"><p id="urn_error" class="error">{{error_key1}}</p></td>
+                                </tr>
+
+                                <tr class="row">
+                                    <div id="r5">
+                                        <td><p class="reg_text">Password</p></td>
+                                        <td><input type="password" id="pass1" name="pass1" class="input" placeholder="Password" required onblur="p1_error()" onkeypress="validate(e)"></td>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"><p id="pass1_error" class="error"></p></td>
+                                </tr>
+
+                                <tr class="row">
+                                    <div id="r6">
+                                        <td><p class="reg_text">Enter Again</p></td>
+                                        <td><input type="password" id="pass2" name="pass" class="input" placeholder="Enter Again" required onblur="p2_error()" onkeypress="validate(e)"></td>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"><p id="pass2_error" class="error">{{error_key2}}</p></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div id="login_data2">
+                            <button type="submit" id="singup_buton" class="but">Singup</button>
+
+                            <div id="extra_link_singup">
+                                <h5 class="ext">Already have an account. <a href="login">Login</a></h5>
+                                <br>
+                                <h5 class="ext">Have a Token Number <span> <a href="activating_user">Click here</a> </span> </h5>
+                            </div>
+                        </div>
+                    </form>
+
+
+                </div>
+            </div>
+            <div id="img_content">
+                <img src={% static 'image/in3.jpg'%}>
+            </div>
+        </div>
+
+<!--------------------------Footer---------------------------------------------->
+        <footer>
+            <p>Copyright @Neeraj 2019-<span id="footer_year">Current Year</span></p>
+        </footer>
+
+        <script>
+            var n = new Date()
+            var s = n.getFullYear()
+            document.getElementById("footer_year").innerText = s
+            console.log(s)
+
+
+            function n_error(){
+                var ge = document.getElementById("nam").value;
+
+                if(ge=="" || ge==" "){
+                   console.log(ge);
+                    document.getElementById("name_error").innerHTML="Name Filed Cant be Empty.";
+                    document.getElementById("nam").focus();
+                }
+                else{
+                    document.getElementById("name_error").innerHTML="";
+                }
+            }
+
+            function e_error(){
+                var ge = document.getElementById("email").value;
+
+                if(ge=="" || ge==" "){
+                   console.log(ge);
+                    document.getElementById("mail_error").innerHTML="Email Filed Cant be Empty.";
+                    document.getElementById("email").focus();
+                }
+                else{
+                    document.getElementById("mail_error").innerHTML="";
+                }
+            }
+
+            function p_error(){
+                var ge = document.getElementById("mobile").value;
+
+                if(ge=="" || ge==" "){
+                   console.log(ge);
+                    document.getElementById("phone_error").innerHTML="Enter your Mobile Number.";
+                    document.getElementById("mobile").focus();
+                }
+                else{
+                    document.getElementById("phone_error").innerHTML="";
+                }
+            }
+            function un_error(){
+                var ge = document.getElementById("usrnam").value;
+
+                if(ge=="" || ge==" "){
+                   console.log(ge);
+                    document.getElementById("urn_error").innerHTML="Choose your a unique username.";
+                    document.getElementById("usrnam").focus();
+                }
+                else{
+                    document.getElementById("urn_error").innerHTML="";
+                }
+            }
+            function p1_error(){
+                var ge = document.getElementById("pass1").value;
+
+                if(ge=="" || ge==" "){
+                   console.log(ge);
+                    document.getElementById("pass1_error").innerHTML="Type a Password.";
+                    document.getElementById("pass1").focus();
+                }
+                else{
+                    document.getElementById("pass1_error").innerHTML="";
+                }
+            }
+            function p2_error(){
+                var ge = document.getElementById("pass2").value;
+
+                if(ge=="" || ge==" "){
+                   console.log(ge);
+                    document.getElementById("pass2_error").innerHTML="Once Again Same Password.";
+                    document.getElementById("pass2").focus();
+                }
+                else{
+                    document.getElementById("pass2_error").innerHTML="";
+                }
+//~~~~~~~~~~~function for matching password~~~~~~~~~~~~~~~
+//                var p1 = document.getElementById("pass1").value;
+//                var p2 = document.getElementById("pass2").value;
+//                if(p1!=p2){
+//                    document.getElementById("pass2_error").innerHTML="Password Not Match, Please Enter Again.";
+//                    document.getElementById("pass1").value="";
+//                    document.getElementById("pass2").value="";
+//                    document.getElementById("pass1").focus();
+//                }
+            }
+
+
+
+
+                var wage = document.getElementById("pass2");
+                wage.addEventListener("keydown", function (e) {
+                    if (e.keyCode === 13) {  //checks whether the pressed key is "Enter"
+                        validate(e);
+                    }
+                });
+
+                function validate(e) {
+                   if(e.keyCode===13){
+                    var p1 = document.getElementById("pass1").value;
+                    var p2 = document.getElementById("pass2").value;
+                    if(p1!=p2){
+                        document.getElementById("pass1").focus();
+                        document.getElementById("pass2_error").innerHTML="Password Not Match, Please Enter Again.";
+                        document.getElementById("pass1").value="";
+                        document.getElementById("pass2").value="";
+                        document.getElementById("pass1").focus();
+                        }
+                    }
+                }
+
+//            function p3_error(){
+////~~~~~~~~~~~function for matching password~~~~~~~~~~~~~~~
+//                if(e.keyCode===13){
+//                    var p1 = document.getElementById("pass1").value;
+//                    var p2 = document.getElementById("pass2").value;
+//                    if(p1!=p2){
+//                        document.getElementById("pass2_error").innerHTML="Password Not Match, Please Enter Again.";
+//                        document.getElementById("pass1").value="";
+//                        document.getElementById("pass2").value="";
+//                        document.getElementById("pass1").focus();
+//                    }
+//                }
+//            }
+        </script>
+
+    </body>
+</html>

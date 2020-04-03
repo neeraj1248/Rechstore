@@ -1,0 +1,484 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial;
+    box-sizing: border-box;
+
+}
+/*---------------Header-----------------------------*/
+header{
+    width: 100%;
+    background-color: #004d40;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+}
+#logo{
+    padding-left: 10;
+}
+
+#login_singup{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+
+
+}
+#login_singup li{
+
+}
+#login_singup a{
+    text-decoration: none;
+    padding: 10px;
+    color: #ede7f6;
+
+}
+#login_singup a:hover{
+    background-color: #00695c;
+    border-radius: 10px;
+/*    color: black;*/
+}
+
+/*---------------------------------------Contener BW header And Footer---------------------------------------------*/
+#main_container{
+    padding-top: 39px;
+    display: flex;
+    flex-direction: column;
+}
+
+#cont_title{
+/*    height: 25px;*/
+    display: flex;
+    flex-direction: row;
+}
+#menu_1{
+    display: none;
+}
+
+#pro_bar{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #cfd8dc;
+    position: fixed;
+}
+
+#outer_list li{
+    list-style: none;
+    float: right;
+    padding: 10px;
+    padding-right: 30px;
+}
+
+#inner_list a{
+    text-decoration: none;
+}
+#inner_list{
+    display: none;
+    right: 0;
+}
+#outer_list li:hover ul{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    background-color: #cfd8dc;
+    padding-top: 10px;
+    margin-top: 10px;
+}
+
+#inner_list li:hover{
+    position: relative;
+    background-color: #eeeeee;
+    border-radius: 10px;
+    font-size: 16;
+}
+#span1{
+    padding-right: 10px;
+}
+#span2{
+    padding-right: 17px;
+}
+#span3{
+    padding-right: 12px;
+}
+
+#txt_home{
+    padding-left: 20px;
+}
+#p1 ul{
+    list-style: none;
+}
+#p1 ul a{
+    text-decoration: none;
+}
+#user_display{
+    text-align: center;
+    width: 230px;
+    height: 25px;
+    padding-top: 4px;
+}
+
+#cont_data{
+    display: flex;
+    margin-top: 38px;
+
+}
+
+#side_bar2{
+    display: none;
+}
+#side_bar a,#side_bar2 a{
+    text-decoration: none;
+
+}
+#side_bar,#side_bar2{
+    width: 300px;
+    background: linear-gradient(to bottom, #cfd8dc 0%, #00897b 100%);
+}
+#side_bar li,#side_bar2 li{
+    padding: 13px 0px;
+    text-align: center;
+    list-style: none;
+
+}
+#side_bar li:hover,#side_bar2 li:hover{
+    position: relative;
+    background-color: #eeeeee;
+    border-radius: 20px;
+    font-size: 17px;
+}
+/***********************************Content Data********************************/
+
+#contanier{
+    display: flex;
+    width: 100%;
+    background-color: cyan
+
+}
+#contanier_data{
+    padding: 10px;
+    margin: 0px;
+    width: 100%;
+}
+            /*~~~~~~~~~~~~~~~Content Data CSS Extra For Every Page~~~~~~~~~~~~~~~*/
+#acd{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    justify-content: space-between;
+
+}
+#bcd_1,#bcd_2,#bcd_3{
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    justify-content: space-between;
+}
+#h5_acc{
+  font-size: 18px;
+}
+
+table,th,td{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+td,th{
+    padding: 7px;
+    text-align: center;
+    font-size: 13px;
+}
+#table_data{
+    padding-top: 7px;
+}
+.legend{
+    padding: 0px 5px;
+}
+#table_search{
+    display: flex;
+}
+#table_data{
+    padding-right: 3px;
+}
+#b_n{
+    padding: 5px;
+}
+#inp_number{
+    width: 100px;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+#f_a{
+    text-decoration: none;
+}
+#search_box{
+    padding-top: 5px;
+}
+#txn_search{
+    display: flex;
+    justify-content: space-between;
+}
+#tag_h5{
+    padding-left: 50px;
+}
+
+#form_data{
+    display: flex;
+    flex-direction: row
+}
+
+
+td{
+    padding: 5px 10px;
+}
+table tr td p{
+    font-size: 13px
+}
+
+.inp{
+    outline: none;
+    font-size: 15px;
+    padding: 3px;
+    border: none;
+    background: none;
+    box-shadow: none;
+    border: 1px solid black;
+    text-align: center;
+
+}
+.inp:focus{
+    outline: 1px solid blue;
+
+}
+#pnp,#throu,{
+    width: 200px;
+
+}
+#remark{
+    width: 425px;
+}
+
+#row2_data,#row3_data,#row4_data,#row5_data,#row6_data,#row7_data,#row8_data{
+    display: flex;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=date]::-webkit-inner-spin-button,
+input[type=date]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+}
+[type="date"] {
+  background:
+      url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)  97% 50% no-repeat ;
+}
+table{
+    border-top: 1px solid black
+}
+#row8_data{
+    padding-left: 178px;
+}
+.but{
+    text-decoration: none;
+    border: none;
+    padding: 10px 15px;
+    border: 1px solid black;
+
+    background-color: cyan
+}
+#but3_cancel{
+    color: black;
+    font-size: 13px;
+}
+#but1_save:focus{
+    background-color: #a5d6a7;
+}
+#but2_resat:focus{
+    background-color: #e57373;
+}
+#r8c3{
+    padding-top: 9px;
+}
+#update_form{
+    border: 1px solid black;
+}
+#update_filed{
+    display: none;
+}
+#chek01{
+  height: 15px;
+  width: 15px;
+}
+#r8{
+  display: flex;
+  flex-direction: row;
+}
+
+.row8_data_check{
+  display: flex;
+  flex-direction: row;
+  justify-content:center;
+  align-items: center;
+  align-content: center;
+}
+
+
+/*++++++++++++++++Media Query+++++++++++++++++++*/
+@media screen and (max-width:999px){
+/*******Header Media Query*******/
+    #logo{
+        height:70px;
+        padding-top: 12px;
+    }
+    #login_singup{
+        font-size: 30px;
+    }
+    #main_container{
+        padding-top: 70px;
+    }
+    #p1{
+        font-size: 29px;
+    }
+    #p1 li{
+        list-style: none;
+    }
+    #user_display{
+        font-size: 25px;
+        padding-top: 0px;
+    }
+    #outer_list{
+        font-size: 30px;
+    }
+    #outer_list li:hover ul{
+        padding-top: 8px;
+        margin-top: 10px;
+    }
+    #inner_list li:hover{
+        font-size: 30px;
+    }
+    #pro_bar{
+        position: fixed;
+    }
+
+    /*    ++++++++++++Media Query Of Side Bar+++++++++*/
+
+    #content{
+        padding-top: 80px;
+    }
+    #menu_1{
+        display: block;
+        padding-left: 3px;
+    }
+    #side_bar{
+        display: none;
+    }
+    #side_bar2{
+    }
+    #cont_data{
+        display: flex;
+        flex-direction: column;
+    }
+    ul li:hover > #side_bar2{
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        width: 100%;
+        margin-top: ;
+    }
+    ul li:hover > #side_bar2 a{
+        font-size: 30px;
+    }
+    #p1 a{
+        text-decoration: none;
+        color: black;
+
+    }
+/*    ++++++++++++Media Query Of Main Contanier Data+++++++++*/
+
+    #contanier{
+        display: flex;
+        flex-direction: column
+    }
+    #contanier_data{
+        padding: 30px;
+    }
+
+}
+
+
+
+
+/* -----------------------Error 404 CSS------------------------------- */
+#error{
+  display: flex;
+  flex-direction: column;
+  padding-top: 39px;
+  background-color: cyan;
+  /* justify-content:space-between; */
+  align-items: center;
+
+}
+#error_error_404{
+  display: flex;
+  flex-direction: row;;
+}
+.err{
+  font-size: 60px;
+  padding: 20px;
+}
+#error_con{
+  font-size: 25px;
+  padding: 20px;
+}
+#err_but{
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+  border: 1px solid black;
+  padding: 10px;
+}
+#err_but:hover{
+  background-color: #95a5a6;
+  color: white;
+}
+#error_back_botton{
+  padding-bottom: 20px;
+}
+
+
+
+/*---------------Footer-----------------------------*/
+
+footer{
+    width: 100%;
+    height: 22px;
+    background-color: #004d40;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+footer p{
+    color: #ede7f6
+}
+/*******Header Media Query*******/
+@media screen and (max-width:999px){
+    footer{
+        height: 35px;
+        font-size: 30px;
+    }
+}

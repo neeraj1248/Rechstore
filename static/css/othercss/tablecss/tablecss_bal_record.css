@@ -1,0 +1,47 @@
+#table_css{
+  border-collapse: collapse;
+  font-size: 0.8em;
+  margin: 25px 0;
+  width: 100%;
+  min-width: 380px;
+}
+
+#table_css thead tr{
+  background-color: gray;
+  border-left: 1px solid gray;
+  height: 23px;
+}
+#table_css thead tr th{
+  border-left: 1px solid black;
+}
+#table_css tbody tr{
+  border-bottom: 1px solid black;
+  text-align: centert;
+}
+#table_css tbody td{
+  padding: 7px;
+  padding-left: 12px;
+  /* text-align: centert; */
+  text-align: center;
+  border-left: 1px solid gray;
+}
+#table_css tbody td a{
+  text-decoration: none;
+}
+#table_css tbody tr:nth-of-type(even){
+  background-color: rgba(189, 195, 199,1.0);
+}
+#table_css tbody tr:nth-of-type(odd){
+  background-color: rgba(223, 230, 233,1.0);
+}
+#table_css tbody tr:last-of-type{
+  border-bottom: 2px solid black;
+}
+#table_data{
+    padding-top: 7px;
+}
+
+/* ---------------------table scrollable code-------------------------------- */
+
+
+/* ----------------------table scrollable code end!!!----------------------------------- */

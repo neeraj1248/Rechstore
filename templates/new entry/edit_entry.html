@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <title>RechSTORE</title>
+        {% load static %}
+        <link rel="stylesheet" href={% static 'css/new entry/new_entry.css' %} type="text/css">
+        <!-- <link rel="stylesheet" href="new_entry.css" type="text/css"> -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet">
+        <link rel="icon" href={% static 'logo/logo2.png'%} type="image/x-icon">
+         <script src="https://kit.fontawesome.com/a68cc05929.js" crossorigin="anonymous"></script>
+
+         <link href='https://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700italic,700,900,900italic' rel='stylesheet' type='text/css'>
+          <link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+          <link rel="stylesheet" type="text/css" href={% static 'css/new entry/main.css' %}>
+          <script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
+          <script src={% static 'javascript/new_entery/moveit.js' %}></script>
+          <script src={% static 'javascript/new_entery/main.js' %}></script>
+    </head>
+
+    <body onload="onload_page()">
+<!--------------------------Header---------------------------------------------->
+        <header>
+            <div id="logo">
+                <a href="#"><img id="logo_header" src={% static 'logo/logo2.png'%}></a>
+            </div>
+            <nav>
+                <ul id="login_singup">
+                  {% if user.is_authenticated  %}
+                  <li id="li_header"><a href="/home/logout"><i class="fas fa-sign-out-alt"></i>  Logout</a></li>
+                  {% else %}
+                  <li id="li_header"><a href="/account/login"><i class="fas fa-sign-out-alt"></i>  Login</a></li>
+                  {% endif %}
+                </ul>
+            </nav>
+        </header>
+<!--------------------------Content---------------------------------------------->
+{% if user.is_authenticated %}
+        <div id="main_container">
+            <div id="cont_title">
+                <div id="pro_bar">
+                    <div id="p1">
+                        <ul>
+                            <li><a href="#"><h4 id="menu_1"><i class="fas fa-bars"></i> Menu</h4></a>
+
+                                    <ul id="side_bar2">
+                                      <li><a href="/home">Home</a></li>
+                                      <li><a href="/new_entry/new_entry">New Entry</a></li>
+                                      <li><a href="/balance_record/balance_record">Bal Record</a></li>
+                                      <li><a href="/all_transactions/all_txn">All Txn</a></li>
+                                      <li><a href="/all_transactions/monthly_statement">Monthly Statement</a></li>
+                                      <li><a href="/all_transactions/extra_pending">Extra Pending</a></li>
+                                    </ul>
+
+                            </li>
+                            <li><a href="#"><h6 id="txt_home">New Entry</h6></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="user_display_f">
+                        <div id="user_display">
+                            <h4 id="un"><i class="fas fa-user-circle"></i> Hello {{user.first_name}}</h4>
+                        </div>
+                    </div>
+                    <div id="p2">
+                        <ul id="outer_list">
+                            <li id="set">Setting <i class='fas'>&#xf107;</i>
+                                <ul id="inner_list">
+                                  <li><a href="/manage_ac/customer_ac_add_del_manage"><span id="span1"><i class='fas'>&#xf0c0;</i></span>  Coustomer A/C</a></li>
+                                  <li><a href="/all_transactions/monthly_statement"><span id="span2"><i class='fas'>&#xf007;</i></span>  My Profile</a></li>
+                                  <li><a href="/unique_numbers_id/unique_numbers_id"><span id="span3"><i class='fas'>&#xf2bb;</i></span>  Number Record</a></li>
+                                  <li><a href="/home/logout"><span id="span3"><i class="fas fa-sign-out-alt"></i></span>  Logout</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+            <div id="cont_data">
+                <div id="side_bar">
+                    <ul>
+                      <li><a href="/home">Home</a></li>
+                      <li><a href="/new_entry/new_entry">New Entry</a></li>
+                      <li><a href="/balance_record/balance_record">Bal Record</a></li>
+                      <li><a href="/all_transactions/all_txn">All Txn</a></li>
+                      <li><a href="/all_transactions/monthly_statement">Monthly Statement</a></li>
+                      <li><a href="/all_transactions/extra_pending">Extra Pending</a></li>
+                    </ul>
+                </div>
+<!--*************Main Contanier Data**********************-->
+                <div id="contanier">
+                    <div id="contanier_data">
+                        <form action="/transactions/update_record_data/{{key_edit.id}}" method="post" enctype="multipart/form-data">
+                          {% csrf_token %}
+                            <table>
+                                <caption>Enter New Entery</caption>
+                                <tr>
+                                    <td>
+                                        <div id="r1">
+                                            <div id="row1_data">
+                                                <p>Date</p>
+                                                <input type="text" name="date" id="date" class="inp" placeholder="Date" required value="{{key_edit.date}}" disabled>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <div id="r2">
+                                        <div id="row2_data">
+                                            <td>
+                                                <div id="r2c1">
+                                                    <p>Number</p>
+                                                    <input type="number" name="number" id="num" class="inp" placeholder="Number" value="{{key_edit.number}}" required>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div id="r2c2">
+                                                    <p>Name</p>
+                                                    <input type="text" name="name" id="nam" class="inp" required placeholder="Name" value="{{key_edit.name}}">
+                                                </div>
+                                            </td>
+                                        </div>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <div id="r3">
+                                        <div id="row3_data">
+                                            <td>
+                                                <div id="r3c1">
+                                                    <p>Rs</p>
+                                                    <input type="number" name="rs" id="rs" class="inp" placeholder="Amount" required value="{{key_edit.rs}}">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div id="r3c2">
+                                                    <p>Status</p>
+                                                    <input type="number" name="status" id="sta" class="inp" placeholder="Amount Recived" required onfocusout="check()" value="{{key_edit.status}}">
+                                                </div>
+                                            </td>
+                                        </div>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <div id="r4">
+                                        <div id="row4_data">
+                                            <td>
+                                                <div id="r4c1">
+                                                    <p>Through</p>
+                                                    <input type="text" name="through" id="throu" class="inp" placeholder="Select - Plateform" required list="through_txn" value="{{key_edit.through}}">
+<!--                                                    <select required id="throu" name="select" class="inp">-->
+                                                    <datalist id="through_txn">
+
+                                                        <option value="Amazon">Amazon</option>
+                                                        <option value="Paytm">Paytm</option>
+                                                        <option value="My Jio">My Jio</option>
+                                                        <option value="Vodafone">Vodafone</option>
+                                                        <option value="Idea">Idea</option>
+                                                        <option value="BSNL">BSNL</option>
+                                                        <option value="Freecharge">Freecharge</option>
+                                                        <option value="PhonePe">PhonePe</option>
+                                                        <option value="PayZapp">PayZapp</option>
+                                                        <option value="Google Pay">Google Pay</option>
+                                                        <option value="Komparify">Komparify</option>
+                                                        <option value="Airtel">Airtel</option>
+                                                        <option value="Hike">Hike</option>
+                                                        <option value="MobiKwik">MobiKwik</option>
+                                                        <option value="Niki">Niki</option>
+                                                        <option value="Pocket">Pocket</option>
+                                                        <option value="Truecaller">Truecaller</option>
+                                                        <option value="SBI App">SBI App</option>
+                                                        <option value="PNB App">PNB App</option>
+                                                        <option value="UCO App">UCO App</option>
+                                                        <option value="CNRB App">CNRB App</option>
+                                                        <option value="Other">Other</option>
+                                                        <option value=""></option>
+                                                        <option value=""></option>
+                                                        <option value=""></option>
+<!--                                                    </select>-->
+                                                    </datalist>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div id="r4c2">
+                                                    <p>Payment </p>
+                                                    <input type="text" name="payment" id="paym" class="inp" placeholder="Payment Mode" required list="through_payment" value="{{key_edit.payment}}">
+<!--                                                    <select required id="paym" name="select" class="inp">-->
+                                                    <datalist id="through_payment">
+                                                        <option value="PNB AC">PNB AC</option>
+                                                        <option value="SBI AC">SBI AC</option>
+                                                        <option value="UCO AC">UCO AC</option>
+                                                        <option value="CNRB AC">CNRB AC</option>
+                                                        <option value="Paytm Payment Bank AC">Paytm Payment Bank AC</option>
+                                                        <option value="Jio Payment Bank AC">Jio Payment Bank AC</option>
+                                                        <option value="UBOI AC">UBOI AC</option>
+                                                        <option value="Axis AC">Axis AC</option>
+                                                        <option value="ICICI Pocket AC">ICICI Pocket AC</option>
+                                                        <option value="Amazon Bal">Amazon Bal</option>
+                                                        <option value="Amazon Vochor Bal">Amazon Vochor Bal</option>
+                                                        <option value="Paytm Ba">Paytm Bal</option>
+                                                        <option value="My Jio Bal">My Jio Bal</option>
+                                                        <option value="Vodafone Bal">Vodafone Bal</option>
+                                                        <option value="Idea Bal">Idea Bal</option>
+                                                        <option value="BSNL Bal">BSNL Bal</option>
+                                                        <option value="Freecharge Bal">Freecharge Bal</option>
+                                                        <option value="PhonePe Bal">PhonePe Bal</option>
+                                                        <option value="PayZapp Bal">PayZapp Bal</option>
+                                                        <option value="Google Pay Bal">Google Pay Bal</option>
+                                                        <option value="Komparify Bal">Komparify Bal</option>
+                                                        <option value="Airtel Bal">Airtel Bal</option>
+                                                        <option value="hike Bal">hike Bal</option>
+                                                        <option value="MobiKwik Bal">MobiKwik Bal</option>
+                                                        <option value="Niki Bal">Niki Bal</option>
+                                                        <option value="Pocket Bal">Pocket Bal</option>
+                                                        <option value="Truecaller Bal">Truecaller Bal</option>
+                                                        <option value="Other">Other</option>
+
+<!--                                                    </select>-->
+                                                    </datalist>
+                                                </div>
+                                            </td>
+                                        </div>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <div id="r5">
+                                        <div id="row5_data">
+                                            <td>
+                                                <div id="r5c1">
+                                                    <p>CB</p>
+                                                    <input type="number" name="cb" id="cb" class="inp" placeholder="Cashback" required onblur="cb1()" value="{{key_edit.cb}}">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div id="r5c2">
+                                                    <p>APC</p>
+                                                    <input type="text" name="apc" id="apc" class="inp" placeholder="Applied Promo Code" required onblur="apc1()" onkeyup="captalize(this)" value="{{key_edit.apc}}">
+                                                </div>
+                                            </td>
+                                        </div>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <div id="r6">
+                                        <div id="row6_data">
+                                            <td colspan="2">
+                                                <div id="r6c1">
+                                                    <p>Remark</p>
+                                                    <input type="text" name="remark" id="remark" class="inp" placeholder="Remark" required onblur="remark1()" value="{{key_edit.remark}}">
+                                                </div>
+                                            </td>
+                                        </div>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <div id="r7">
+                                        <div id="row7_data">
+                                            <td>
+                                                <div id="r7c1">
+                                                    <p>Paid/Not Paid</p>
+                                                    <select required id="pnp" class="inp" class="sel" name="pnp" value="{{key_edit.p_np}}">
+                                                        <option value="Paid">Paid</option>
+                                                        <option value="Not Paid">Not Paid</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div id="r7c2">
+                                                    <p>ID</p>
+                                                    <input type="text" name="ac_id" id="ide" class="inp" placeholder=" C AC ID" required value="{{key_edit.ac_id}}">
+                                                </div>
+                                            </td>
+                                        </div>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <div id="r6">
+                                        <div id="row6_data">
+                                            <td colspan="2">
+                                                <div id="r6c1">
+                                                    <p>Screenshot</p>
+                                                    <input type="text" name="pic" id="remark" class="inp" placeholder="Screenshot" onblur="remark1()" value="{{key_edit.screenshot}}" disabled>
+                                                </div>
+                                            </td>
+                                        </div>
+                                    </div>
+                                </tr>
+                            </table>
+                                <div id="r8">
+                                    <div id="row8_data">
+                                        <div id="r8c1">
+                                            <input type="submit" value="Update Txn" id="but1_save" class="but succeed">
+                                        </div>
+                                        <div id="r8c2">
+                                            <input type="reset" value="Resat" id="but2_resat" class="but">
+                                        </div>
+                                        <div id="r8c3">
+                                            <a href="/home" id="but3_cancel" class="but" onclick="jump_home()">Cancel </a>
+                                        </div>
+                                    </div>
+                                </div>
+                        </form>
+
+                    </div>
+                    <!-- <div id="secound_div">
+                        <a href="www.google.com" target="iframe_a" id="frame" onclick="loadi()">Open Custome Ac Id</a>
+                        <iframe name="iframe_a" id="iframe_a" height="95%"></iframe>
+                    </div> -->
+                </div>
+
+<!--********Ending of Main Contanier Data ************-->
+            </div>
+        </div>
+        {% else %}
+        <div id="error">
+        <div id="error_oops">
+          <h1 class="err">OOPS</h1>
+        </div>
+        <div id="error_error_404">
+          <div id="error_error">
+            <h1 class="err">ERROR</h1>
+          </div>
+          <div id="error_face">
+            <i class="far fa-sad-tear" style="font-size:120px; color:skyblue;"></i>
+          </div>
+          <div id="error_404">
+            <h1 class="err">404</h1>
+          </div>
+        </div>
+        <div id="error_content">
+          <p id="error_con">"Sorry! the page you are looking for can't be found"</p>
+        </div>
+        <div id="error_back_botton">
+          <a href="/account/login" id="err_but">Back to Login </a>
+        </div>
+      </div>
+      {% endif %}
+<!--------------------------Footer---------------------------------------------->
+        <footer>
+            <p>Copyright @Neeraj 2019-<span id="footer_year">Current Year</span></p>
+        </footer>
+
+        <script>
+            var n = new Date()
+            var s = n.getFullYear()
+            document.getElementById("footer_year").innerText = s
+            console.log(s)
+
+            //-----------------------------------
+            function jump_home(){
+                var a =  document.getElementById("but3_cancel").innerHTML;
+                console.log(a);
+                var b =  document.getElementById("but3_cancel").innerText = " Going To Home";
+                console.log(b)
+            }
+
+            function captalize(th){
+                th.value = th.value.toUpperCase()
+            }
+
+            function check(){
+                var rs_value = parseInt(document.getElementById("rs").value);
+                var sta_value = parseInt(document.getElementById("sta").value);
+
+                if(rs_value==sta_value){
+                    document.getElementById("pnp").value = "Paid";
+                }
+                else if(rs_value<sta_value){
+                    alert("Status Amount is Grater then Txn Amount.");
+                    document.getElementById("rs").focus();
+                }
+                else{
+                    document.getElementById("pnp").value = "Not Paid";
+                }
+            }
+
+            function cb1(){
+                 var c = document.getElementById("cb").value
+                if(c=="" || c==" "){
+                    document.getElementById("cb").value = '0'
+                }
+                var z = document.getElementById("cb").value
+                console.log(z)
+            }
+
+            function apc1(){
+                var d = document.getElementById("apc").value
+                if(d=="" || d==" "){
+                    document.getElementById("apc").value = 'No PromoCode'
+                }
+                var z = document.getElementById("apc").value
+                console.log(z)
+            }
+
+            function remark1(){
+                var d = document.getElementById("remark").value
+                if(d=="" || d==" "){
+                    document.getElementById("remark").value = '-----------'
+                }
+                var z = document.getElementById("remark").value
+                console.log(z)
+            }
+
+
+            function onload_page(){
+              document.getElementById('date').focus()
+            }
+        </script>
+
+    </body>
+</html>

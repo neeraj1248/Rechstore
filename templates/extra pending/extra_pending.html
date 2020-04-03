@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <title>RechSTORE</title>
+        {% load static %}
+        <link rel="stylesheet" href={% static 'css/monthly statement/monthly_statement.css' %} type="text/css">
+        <!-- <link rel="stylesheet" href="extra_pending.css" type="text/css"> -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet">
+        <link rel="icon" href={% static 'logo/logo2.png'%} type="image/x-icon">
+         <script src="https://kit.fontawesome.com/a68cc05929.js" crossorigin="anonymous"></script>
+
+    </head>
+
+    <body>
+<!--------------------------Header---------------------------------------------->
+        <header>
+            <div id="logo">
+                <a href="#"><img id="logo_header" src={% static 'logo/logo2.png'%}></a>
+            </div>
+            <nav>
+                <ul id="login_singup">
+                  {% if user.is_authenticated  %}
+                  <li id="li_header"><a href="/home/logout"><i class="fas fa-sign-out-alt"></i>  Logout</a></li>
+                  {% else %}
+                  <li id="li_header"><a href="/account/login"><i class="fas fa-sign-out-alt"></i>  Login</a></li>
+                  {% endif %}
+                </ul>
+            </nav>
+        </header>
+<!--------------------------Content---------------------------------------------->
+  {% if user.is_authenticated %}
+        <div id="main_container">
+            <div id="cont_title">
+                <div id="pro_bar">
+                    <div id="p1">
+                        <ul>
+                            <li><a href="#"><h4 id="menu_1"><i class="fas fa-bars"></i> Menu</h4></a>
+
+                                    <ul id="side_bar2">
+                                      <li><a href="/home">Home</a></li>
+                                      <li><a href="/new_entry/new_entry">New Entry</a></li>
+                                      <li><a href="/balance_record/balance_record">Bal Record</a></li>
+                                      <li><a href="/all_transactions/all_txn">All Txn</a></li>
+                                      <li><a href="/all_transactions/monthly_statement">Monthly Statement</a></li>
+                                      <li><a href="extra_pending">Extra Pending</a></li>
+                                    </ul>
+
+                            </li>
+                            <li><a href="#"><h6 id="txt_home">Extra Pending Txn</h6></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="user_display_f">
+                        <div id="user_display">
+                            <h4 id="un"><i class="fas fa-user-circle"></i> Hello {{user.first_name}}</h4>
+                        </div>
+                    </div>
+                    <div id="p2">
+                        <ul id="outer_list">
+                            <li id="set">Setting <i class='fas'>&#xf107;</i>
+                                <ul id="inner_list">
+                                  <li><a href="/manage_ac/customer_ac_add_del_manage"><span id="span1"><i class='fas'>&#xf0c0;</i></span>  Coustomer A/C</a></li>
+                                  <li><a href="/all_transactions/monthly_statement"><span id="span2"><i class='fas'>&#xf007;</i></span>  My Profile</a></li>
+                                  <li><a href="/unique_numbers_id/unique_numbers_id"><span id="span3"><i class='fas'>&#xf2bb;</i></span>  Number Record</a></li>
+                                  <li><a href="/home/logout"><span id="span3"><i class="fas fa-sign-out-alt"></i></span>  Logout</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+            <div id="cont_data">
+                <div id="side_bar">
+                    <ul>
+                      <li><a href="/home">Home</a></li>
+                      <li><a href="/new_entry/new_entry">New Entry</a></li>
+                      <li><a href="/balance_record/balance_record">Bal Record</a></li>
+                      <li><a href="/all_transactions/all_txn">All Txn</a></li>
+                      <li><a href="/all_transactions/monthly_statement">Monthly Statement</a></li>
+                      <li><a href="extra_pending">Extra Pending</a></li>
+                    </ul>
+                </div>
+<!--*************Main Contanier Data**********************-->
+                <div id="contanier">
+                    <div id="contanier_data">
+                        <div id="msg_box">
+                            <img src={% static 'image/devlopment2.gif' %} id="img_u">
+                            <h4 id="error_text">Under Devlopment</h4>
+                        </div>
+                    </div>
+                </div>
+
+<!--********Ending of Main Contanier Data ************-->
+            </div>
+        </div>
+        {% else %}
+        <div id="error">
+          <div id="error_oops">
+            <h1 class="err">OOPS</h1>
+          </div>
+          <div id="error_error_404">
+            <div id="error_error">
+              <h1 class="err">ERROR</h1>
+            </div>
+            <div id="error_face">
+              <i class="far fa-sad-tear" style="font-size:120px; color:skyblue;"></i>
+            </div>
+            <div id="error_404">
+              <h1 class="err">404</h1>
+            </div>
+          </div>
+          <div id="error_content">
+            <p id="error_con">"Sorry! the page you are looking for can't be found"</p>
+          </div>
+          <div id="error_back_botton">
+            <a href="/account/login" id="err_but">Back to Login </a>
+          </div>
+        </div>
+
+        {% endif%}
+<!--------------------------Footer---------------------------------------------->
+        <footer>
+            <p>Copyright @Neeraj 2019-<span id="footer_year">Current Year</span></p>
+        </footer>
+
+        <script>
+            var n = new Date()
+            var s = n.getFullYear()
+            document.getElementById("footer_year").innerText = s
+            console.log(s)
+
+            //-----------------------------------
+        </script>
+
+    </body>
+</html>

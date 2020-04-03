@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <title>RechSTORE</title>
+        {% load static %}
+        <link rel="stylesheet" href={% static 'css/home/home.css' %} type="text/css">
+        <link rel="stylesheet" href={% static 'css\othercss\tablecss\table.css' %} type="text/css">
+        <!-- <link rel="stylesheet" href="home.css" type="text/css"> -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet">
+        <link rel="icon" href={% static 'logo/logo2.png'%} type="image/x-icon">
+         <script src="https://kit.fontawesome.com/a68cc05929.js" crossorigin="anonymous"></script>
+
+    </head>
+
+    <body>
+<!--------------------------Header---------------------------------------------->
+        <header>
+            <div id="logo">
+                <a href="#"><img id="logo_header" src={% static 'logo/logo2.png'%}></a>
+            </div>
+            <nav>
+                <ul id="login_singup">
+                  {% if user.is_authenticated  %}
+                  <li id="li_header"><a href="logout"><i class="fas fa-sign-out-alt"></i>  Logout</a></li>
+                  {% else %}
+                  <li id="li_header"><a href="/account/login"><i class="fas fa-sign-out-alt"></i>  Login</a></li>
+                  {% endif %}
+                </ul>
+            </nav>
+        </header>
+<!--------------------------Content---------------------------------------------->
+        {% if user.is_authenticated %}
+        <div id="main_container">
+            <div id="cont_title">
+                <div id="pro_bar">
+                    <div id="p1">
+                        <ul>
+                            <li><a href="#"><h4 id="menu_1"><i class="fas fa-bars"></i> Menu</h4></a>
+
+                                    <ul id="side_bar2">
+                                      <li><a href="/home">Home</a></li>
+                                      <li><a href="/new_entry/new_entry">New Entry</a></li>
+                                      <li><a href="/balance_record/balance_record">Bal Record</a></li>
+                                      <li><a href="/all_transactions/all_txn">All Txn</a></li>
+                                      <li><a href="/all_transactions/monthly_statement">Monthly Statement</a></li>
+                                      <li><a href="/all_transactions/extra_pending">Extra Pending</a></li>
+                                    </ul>
+
+                            </li>
+                            <li><a href="#"><h6 id="txt_home">Home</h6></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="user_display_f">
+                        <div id="user_display">
+                            <h4 id="un"><i class="fas fa-user-circle"></i> Hello {{user.first_name}}</h4>
+                        </div>
+                    </div>
+                    <div id="user_display_f">
+                        <div id="user_display">
+                            <h4 id="un" class="un_last_login"><p>{{user.last_login}}</p></h4>
+                        </div>
+                    </div>
+                    <div id="p2">
+                        <ul id="outer_list">
+                            <li id="set">Setting <i class='fas'>&#xf107;</i>
+                                <ul id="inner_list">
+                                    <li><a href="/manage_ac/customer_ac_add_del_manage"><span id="span1"><i class='fas'>&#xf0c0;</i></span>  Coustomer A/C</a></li>
+                                    <li><a href="monthly_statement.html"><span id="span2"><i class='fas'>&#xf007;</i></span>  My Profile</a></li>
+                                    <li><a href="/unique_numbers_id/unique_numbers_id"><span id="span3"><i class='fas'>&#xf2bb;</i></span>  Number Record</a></li>
+                                    <li><a href="logout"><span id="span3"><i class="fas fa-sign-out-alt"></i></span>  Logout</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+            <div id="cont_data">
+                <div id="side_bar">
+                    <ul>
+                        <li><a href="/home">Home</a></li>
+                        <li><a href="/new_entry/new_entry">New Entry</a></li>
+                        <li><a href="/balance_record/balance_record">Bal Record</a></li>
+                        <li><a href="/all_transactions/all_txn">All Txn</a></li>
+                        <li><a href="/all_transactions/monthly_statement">Monthly Statement</a></li>
+                        <li><a href="/all_transactions/extra_pending">Extra Pending</a></li>
+                    </ul>
+                </div>
+                <div id="content">
+                  <div id="error">
+                    <div id="error_oops">
+                      <h1 class="err">OOPS</h1>
+                    </div>
+                    <div id="error_error_404">
+                      <div id="error_error">
+                        <h1 class="err">ERROR</h1>
+                      </div>
+                      <div id="error_face">
+                        <i class="far fa-sad-tear" style="font-size:120px; color:skyblue;"></i>
+                      </div>
+                      <div id="error_404">
+                        <h1 class="err">404</h1>
+                      </div>
+                    </div>
+                    <div id="error_content">
+                      <p id="error_con">"Sorry! the page you are looking for can't be found"</p>
+                    </div>
+                    <div id="error_back_botton">
+                      <a href="/account/login" id="err_but">Back to Home </a>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div id="error">
+          <div id="error_oops">
+            <h1 class="err">OOPS</h1>
+          </div>
+          <div id="error_error_404">
+            <div id="error_error">
+              <h1 class="err">ERROR</h1>
+            </div>
+            <div id="error_face">
+              <i class="far fa-sad-tear" style="font-size:120px; color:skyblue;"></i>
+            </div>
+            <div id="error_404">
+              <h1 class="err">404</h1>
+            </div>
+          </div>
+          <div id="error_content">
+            <p id="error_con">"Sorry! the page you are looking for can't be found"</p>
+          </div>
+          <div id="error_back_botton">
+            <a href="/account/login" id="err_but">Back to Login </a>
+          </div>
+        </div>
+
+        {% endif%}
+<!--------------------------Footer---------------------------------------------->
+        <footer>
+            <p>Copyright @Neeraj 2019-<span id="footer_year">Current Year</span></p>
+        </footer>
+
+        <script>
+            var n = new Date()
+            var s = n.getFullYear()
+            document.getElementById("footer_year").innerText = s
+            console.log(s)
+
+            // var a = screen.height
+            // var x = document.getElementById('error').style.height = a+'px'
+            // console.log(x)
+        </script>
+        <script>
+                    window.onload = function () {
+
+                    var chart = new CanvasJS.Chart("chartContainer", {
+                        theme: "light2",
+                        animationEnabled: true,
+                        title: {
+                            text: ""
+                        },
+                        subtitles: [{
+                            text: "",
+                            fontSize: 16
+                        }],
+                        data: [{
+                            type: "pie",
+                            indexLabelFontSize: 18,
+                            radius: 80,
+                            indexLabel: "{label} - {y}",
+                            yValueFormatString: "###0.0\"%\"",
+                            click: explodePie,
+                            dataPoints: [
+                                { y: 42, label: "G" },
+                                { y: 21, label: "N"},
+
+                            ]
+                        }]
+                    });
+                    chart.render();
+
+                    function explodePie(e) {
+                        for(var i = 0; i < e.dataSeries.dataPoints.length; i++) {
+                            if(i !== e.dataPointIndex)
+                                e.dataSeries.dataPoints[i].exploded = false;
+                        }
+                    }
+
+                    }
+        </script>
+
+        <script src={% static  'javascript/home/jquery-1.10.2.min.js'%}></script>
+        <script src={% static  'javascript/home/numscroller-1.0.js'%}></script>
+        <script src={% static  'javascript/home/canvasjs.min.js' %}></script>
+        <script>
+                    // Change the selector if needed
+            var $table = $('table.scroll'),
+              $bodyCells = $table.find('tbody tr:first').children(),
+              colWidth;
+
+            // Adjust the width of thead cells when window resizes
+            $(window).resize(function() {
+              // Get the tbody columns width array
+              colWidth = $bodyCells.map(function() {
+                  return $(this).width();
+              }).get();
+
+              // Set the width of thead columns
+              $table.find('thead tr').children().each(function(i, v) {
+                  $(v).width(colWidth[i]);
+              });
+            }).resize(); // Trigger resize handler
+        </script>
+
+    </body>
+</html>

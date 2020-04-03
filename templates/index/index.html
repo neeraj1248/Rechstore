@@ -1,0 +1,38 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <title>RechSTORE</title>
+        {% load static %}
+        <link rel="stylesheet" href={% static 'css/index/index.css' %} type="text/css">
+    </head>
+
+    <body>
+<!--------------------------Header---------------------------------------------->
+        <header>
+            <div id="logo">
+                <a href="#"><img src={% static 'logo/logo2.png'%}></a>
+            </div>
+            <nav>
+                <ul id="login_singup">
+                    <li><a href="account/login">Login</a></li>
+                    <li><a href="account/register">Singup</a></li>
+                </ul>
+            </nav>
+        </header>
+<!--------------------------Content---------------------------------------------->
+        <div id="content">
+            <img src={% static 'image/in3.jpg'%}>
+        </div>
+<!--------------------------Footer---------------------------------------------->
+       <footer>
+            <p>Copyright @Neeraj 2019-<span id="footer_year">Current Year</span></p>
+        </footer>
+
+        <script>
+            var n = new Date()
+            var s = n.getFullYear()
+            document.getElementById("footer_year").innerText = s
+            console.log(s)
+        </script>
+    </body>
+</html>

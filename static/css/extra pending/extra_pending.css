@@ -1,0 +1,331 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial;
+    box-sizing: border-box;
+
+}
+/*---------------Header-----------------------------*/
+header{
+    width: 100%;
+    background-color: #004d40;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+}
+#logo{
+    padding-left: 10;
+}
+
+#login_singup{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+
+
+}
+#login_singup li{
+
+}
+#login_singup a{
+    text-decoration: none;
+    padding: 10px;
+    color: #ede7f6;
+
+}
+#login_singup a:hover{
+    background-color: #00695c;
+    border-radius: 10px;
+/*    color: black;*/
+}
+
+/*---------------------------------------Contener BW header And Footer---------------------------------------------*/
+#main_container{
+    padding-top: 39px;
+    display: flex;
+    flex-direction: column;
+}
+
+#cont_title{
+/*    height: 25px;*/
+    display: flex;
+    flex-direction: row;
+}
+#menu_1{
+    display: none;
+}
+
+#pro_bar{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #cfd8dc;
+    position: fixed;
+}
+
+#outer_list li{
+    list-style: none;
+    float: right;
+    padding: 10px;
+    padding-right: 30px;
+}
+
+#inner_list a{
+    text-decoration: none;
+}
+#inner_list{
+    display: none;
+    right: 0;
+}
+#outer_list li:hover ul{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    background-color: #cfd8dc;
+    padding-top: 10px;
+    margin-top: 10px;
+}
+
+#inner_list li:hover{
+    position: relative;
+    background-color: #eeeeee;
+    border-radius: 10px;
+    font-size: 16;
+}
+#span1{
+    padding-right: 10px;
+}
+#span2{
+    padding-right: 17px;
+}
+#span3{
+    padding-right: 12px;
+}
+
+#txt_home{
+    padding-left: 20px;
+}
+#p1 ul{
+    list-style: none;
+}
+#p1 ul a{
+    text-decoration: none;
+}
+#user_display{
+    text-align: center;
+    width: 230px;
+    height: 25px;
+    padding-top: 4px;
+}
+
+#cont_data{
+    display: flex;
+    margin-top: 38px;
+
+}
+
+#side_bar2{
+    display: none;
+}
+#side_bar a,#side_bar2 a{
+    text-decoration: none;
+
+}
+#side_bar,#side_bar2{
+    width: 300px;
+    background: linear-gradient(to bottom, #cfd8dc 0%, #00897b 100%);
+}
+#side_bar li,#side_bar2 li{
+    padding: 13px 0px;
+    text-align: center;
+    list-style: none;
+
+}
+#side_bar li:hover,#side_bar2 li:hover{
+    position: relative;
+    background-color: #eeeeee;
+    border-radius: 20px;
+    font-size: 17px;
+}
+/***********************************Content Data********************************/
+
+#contanier{
+    width: 100%;
+    background-color: cyan;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    padding: 20px 0px;
+}
+#contanier_data{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    width: 600px;
+    background: #1CD8D2;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #93EDC7, #1CD8D2);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #93EDC7, #1CD8D2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    height: 500px;
+    border-radius: 10px;
+
+}
+
+
+            /*~~~~~~~~~~~~~~~Content Data CSS Extra For Every Page~~~~~~~~~~~~~~~*/
+
+#error_text{
+   text-align: center;
+    font-size: 30px;
+    color: #00416A;  /* fallback for old browsers */
+    color: -webkit-linear-gradient(to right, #FFE000, #799F0C, #00416A);  /* Chrome 10-25, Safari 5.1-6 */
+    color: linear-gradient(to right, #FFE000, #799F0C, #00416A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+}
+
+#img_u{
+    height: 300px;
+    width: 500px
+}
+
+/*++++++++++++++++Media Query+++++++++++++++++++*/
+@media screen and (max-width:999px){
+/*******Header Media Query*******/
+    #logo{
+        height:70px;
+        padding-top: 12px;
+    }
+    #login_singup{
+        font-size: 30px;
+    }
+    #main_container{
+        padding-top: 70px;
+    }
+    #p1{
+        font-size: 29px;
+    }
+    #p1 li{
+        list-style: none;
+    }
+    #user_display{
+        font-size: 25px;
+        padding-top: 0px;
+    }
+    #outer_list{
+        font-size: 30px;
+    }
+    #outer_list li:hover ul{
+        padding-top: 8px;
+        margin-top: 10px;
+    }
+    #inner_list li:hover{
+        font-size: 30px;
+    }
+    #pro_bar{
+        position: fixed;
+    }
+
+    /*    ++++++++++++Media Query Of Side Bar+++++++++*/
+
+    #content{
+        padding-top: 80px;
+    }
+    #menu_1{
+        display: block;
+        padding-left: 3px;
+    }
+    #side_bar{
+        display: none;
+    }
+    #side_bar2{
+    }
+    #cont_data{
+        display: flex;
+        flex-direction: column;
+    }
+    ul li:hover > #side_bar2{
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        width: 100%;
+        margin-top: ;
+    }
+    ul li:hover > #side_bar2 a{
+        font-size: 30px;
+    }
+    #p1 a{
+        text-decoration: none;
+        color: black;
+
+    }
+/*    ++++++++++++Media Query Of Main Contanier Data+++++++++*/
+
+    #contanier{
+        padding-top: 80px;
+        padding-bottom: 60px;
+    }
+
+}
+/* -----------------------Error 404 CSS------------------------------- */
+#error{
+  display: flex;
+  flex-direction: column;
+  padding-top: 39px;
+  background-color: cyan;
+  /* justify-content:space-between; */
+  align-items: center;
+
+}
+#error_error_404{
+  display: flex;
+  flex-direction: row;;
+}
+.err{
+  font-size: 60px;
+  padding: 20px;
+}
+#error_con{
+  font-size: 25px;
+  padding: 20px;
+}
+#err_but{
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+  border: 1px solid black;
+  padding: 10px;
+}
+#err_but:hover{
+  background-color: #95a5a6;
+  color: white;
+}
+#error_back_botton{
+  padding-bottom: 20px;
+}
+
+
+/*---------------Footer-----------------------------*/
+
+footer{
+    width: 100%;
+    height: 22px;
+    background-color: #004d40;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+footer p{
+    color: #ede7f6
+}
+/*******Header Media Query*******/
+@media screen and (max-width:999px){
+    footer{
+        height: 35px;
+        font-size: 30px;
+    }
+}

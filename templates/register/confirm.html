@@ -1,0 +1,105 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <title>RechSTORE</title>
+        {% load static %}
+        <link rel="stylesheet" href={% static 'css/register/register.css' %} type="text/css">
+        <style media="screen">
+          #user{
+            color: white;
+            font-weight: normal;
+          }
+        </style>
+    </head>
+
+    <body>
+<!--------------------------Header---------------------------------------------->
+        <header>
+            <div id="logo">
+                <a href="#"><img src={% static 'logo/logo2.png'%}></a>
+            </div>
+            <nav>
+                <ul id="login_singup">
+                    <li><a href="login">Login</a></li>
+                    <li><a href="register">Singup</a></li>
+                </ul>
+            </nav>
+        </header>
+<!--------------------------Content---------------------------------------------->
+        <div id="main_contanier">
+
+
+            <div id="login_section">
+                <div id="bor">
+                    <div id="login_text">
+                        <h2>Register Now</h2>
+
+                    </div>
+                    <h4>Hello, <span id="user">{{u}}</span> </h4>
+                    <h6>OTP has been send to your registered number {{mob}}.</h6>
+                    <form action="register" method="post">
+                      {% csrf_token %}
+                        <div id="login_data">
+                            <table>
+                                <tr class="row">
+                                    <div id="r3">
+                                        <td><p class="reg_text">OTP</p></td>
+                                        <td><input type="number" id="mobile" name="otp" class="input" placeholder="XXXX" required onblur="p_error()"></td>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"><p id="phone_error" class="error"></p></td>
+                                    <!-- <td colspan="2"><p class="error">{{key_error}}</p></td> -->
+                                </tr>
+                                <tr>
+                                    <td colspan="2"><p class="error">{{key_error}}</p></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"><p class="error">{{err}}</p></td>
+                                </tr>
+                            </table>
+                            <input type="text" name="username" value="{{u}}" hidden>
+                        </div>
+                        <div id="login_data2">
+                            <button type="submit" id="singup_buton" class="but">Validate</button>
+
+                            <div id="extra_link_singup">
+                                <h5 class="ext">Already have an account. <a href="login">Login</a></h5>
+                            </div>
+                        </div>
+                    </form>
+
+
+                </div>
+            </div>
+            <div id="img_content">
+                <img src={% static 'image/in3.jpg'%}>
+            </div>
+        </div>
+
+<!--------------------------Footer---------------------------------------------->
+        <footer>
+            <p>Copyright @Neeraj 2019-<span id="footer_year">Current Year</span></p>
+        </footer>
+
+        <script>
+            var n = new Date()
+            var s = n.getFullYear()
+            document.getElementById("footer_year").innerText = s
+            console.log(s)
+            function p_error(){
+                var ge = document.getElementById("mobile").value;
+
+                if(ge=="" || ge==" "){
+                   console.log(ge);
+                    document.getElementById("phone_error").innerHTML="Enter One Time Password.";
+                    document.getElementById("mobile").focus();
+                }
+                else{
+                    document.getElementById("phone_error").innerHTML="";
+                }
+            }
+        </script>
+
+    </body>
+</html>

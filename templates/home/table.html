@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <title>RechSTORE</title>
+        {% load static %}
+        <link rel="stylesheet" href={% static 'css/home/home.css' %} type="text/css">
+        <!-- <link rel="stylesheet" href="home.css" type="text/css"> -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet">
+        <link rel="icon" href={% static 'logo/logo2.png'%} type="image/x-icon">
+         <script src="https://kit.fontawesome.com/a68cc05929.js" crossorigin="anonymous"></script>
+
+    </head>
+
+    <body>
+<!--------------------------Content---------------------------------------------->
+        {% if user.is_authenticated %}
+                              <table id="table_css" class="table-container">
+                                <thead>
+                                    <tr>
+                                        <th>Sr.No</th>
+                                        <th>Date</th>
+                                        <th>Number</th>
+                                        <th>Name</th>
+                                        <th>Rs</th>
+                                        <th>Status</th>
+                                        <th>Through</th>
+                                        <th>Payment</th>
+                                        <th>CB</th>
+                                        <th>APC</th>
+                                        <th>Remark</th>
+                                        <th>P/NP</th>
+                                        <th>Id</th>
+                                        <th>Update</th>
+                                    </tr>
+                                  </thead>
+
+                                  <tbody>
+                                    {% for i in key1 %}
+                                    <tr>
+                                        <td id="td1_sr">{{forloop.counter}}</td>
+                                        <td>{{i.date}}</td>
+                                        <td>{{i.number}}</td>
+                                        <td>{{i.name}}</td>
+                                        <td>{{i.rs}}</td>
+                                        <td>{{i.status}}</td>
+                                        <td>{{i.through}}</td>
+                                        <td>{{i.payment}}</td>
+                                        <td>{{i.cb}}</td>
+                                        <td>{{i.apc}}</td>
+                                        <td>{{i.remark}}</td>
+                                        <td>{{i.p_np}}</td>
+                                        {% if i.screenshot.url == 'media/--------'%}
+                                        <td><a href={{i.screenshot.url}} target="_blank">No Image</a></td>
+                                        {% else %}
+                                        <td><a href={{i.screenshot.url}} target="_blank">View</a></td>
+                                        {% endif %}
+                                        <td><a href="#">Update</a></td>
+                                    </tr>
+                                    {% endfor%}
+                                  </tbody>
+                              </table>
+        {% else %}
+    </body>
+</html>
