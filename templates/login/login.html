@@ -1,84 +1,49 @@
-<!DOCTYPE>
 <html>
     <head>
-        <title>RechSTORE</title>
+        <title>Login</title>
         {% load static %}
         <link rel="stylesheet" href={% static 'css/login/login.css' %} type="text/css">
+<!--        <link rel="stylesheet" href="login.css" type="text/css">-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet">
     </head>
-
     <body>
-<!--------------------------Header---------------------------------------------->
         <header>
-            <div id="logo">
-                <a href="#"><img src={% static 'logo/logo2.png'%}></a>
-            </div>
-            <nav>
-                <ul id="login_singup">
-                    <li><a href="login">Login</a></li>
-                    <li><a href="register">Singup</a></li>
-                </ul>
-            </nav>
+            
         </header>
-<!--------------------------Content---------------------------------------------->
-        <div id="main_contanier">
-
-
-            <div id="login_section">
-
-                <form action="login" method="post">
-                  {% csrf_token %}
-                    <div id="bor">
-                        <div id="login_text">
-                            <h2>Login Account</h2>
-
-                        </div>
-
-                        <div id="login_data">
-                            <div id="snd">
-                                <p class="log_text">User_Id</p>
-                                <input  type="text" id="uid" name="usrnam" class="input" placeholder="Email/Number/User id" required>
+        <form action="login" method="post">
+            {% csrf_token %}
+            <div id="contaniner" class="">
+                <div id="login_part">
+                    <div id="login_data">
+                        <h1 id="log">Login</h1>
+                        <form method="POST" action="" id="form_data" class="">
+                            <div>
+                                <h1 class="material-icons">account_circle</h1>
+                                <input type="text" name="usrnam" id="uid" class="inp" placeholder="User Id" required>
                             </div>
-                            <div id="fst">
-                                <p class="log_text" id="seprate">Password</p>
-                                <input type="password" id="pass" name="pass" class="input" placeholder="Password" required>
-                                {% for message in messages %}
-                                <p id="usr_pass_error" class="error">{{message}}</p>
-                                {% endfor %}
+                            <div>
+                                <span class="material-icons">lock</span>
+                                <input type="password" name="pass" id="pass" class="inp" placeholder="Password" required >
                             </div>
-                        </div>
-
-                        <div id="login_data2">
-                            <button type="submit" id="login_buton" class="but">Login</button>
-
-                            <div id="extra_link_singup">
-
-                                <h5 class="ext">Don't have an account. <a href="register">Singup</a></h5>
-                                <br>
-                                <h5>Forgate Password <span> <a href="/forgate/resataccountpassword">Click here</a> </span> </h5>
-                                <br>
-                                <h4>{{error_key2}}</h4>
-                            </div>
-                        </div>
+                            {% for message in messages %}
+                            <p id="usr_pass_error" class="error">{{message}}</p>
+                            {% endfor %}
+                            <input type="submit" name="" value="Singin" class="inp" id="but">
+                        </form>
+                        <h5><a href="/forgate/resataccountpassword" id="forget_txt">Forgot your Password?</a></h5>
+                        <h4>{{error_key2}}</h4>
                     </div>
-                </form>
+                </div>
+
+                <div id="msg_part">
+                    <h2 class="msp">Hello, Friend!</h2>
+                    <p class="msp2">Enter your Personal details</p>
+                    <p class="msp3">and start journey with us.</p>
+    <!--                <input type="button" value="Join Us" id="but2" class="">-->
+                    <a href="register" id="but2" class="">JOIN US</a>
+                </div>
             </div>
-            <div id="img_content">
-                <img src={% static 'image/in3.jpg'%}>
-            </div>
-        </div>
-
-<!--------------------------Footer---------------------------------------------->
-        <footer>
-            <p>Copyright @Neeraj 2019-<span id="footer_year">Current Year</span></p>
-        </footer>
-
-        <script>
-            var n = new Date()
-            var s = n.getFullYear()
-            document.getElementById("footer_year").innerText = s
-            console.log(s)
-        </script>
-
-
+        </form>
     </body>
 </html>
