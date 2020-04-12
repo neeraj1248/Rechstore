@@ -1,94 +1,59 @@
-<!DOCTYPE>
 <html>
     <head>
+<!--
+        <title>Login</title>
+        <link rel="stylesheet" href="register.css" type="text/css">
+-->
         <title>RechSTORE</title>
         {% load static %}
         <link rel="stylesheet" href={% static 'css/register/register.css' %} type="text/css">
-        <style media="screen">
-          #user{
-            color: white;
-            font-weight: normal;
-          }
-        </style>
+        
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet">
     </head>
-
     <body>
-<!--------------------------Header---------------------------------------------->
         <header>
-            <div id="logo">
-                <a href="#"><img src={% static 'logo/logo2.png'%}></a>
-            </div>
-            <nav>
-                <ul id="login_singup">
-                    <li><a href="login">Login</a></li>
-                    <li><a href="register">Singup</a></li>
-                </ul>
-            </nav>
+            
         </header>
-<!--------------------------Content---------------------------------------------->
-        <div id="main_contanier">
-
-
-            <div id="login_section">
-                <div id="bor">
-                    <div id="login_text">
-                        <h2>Activating Account</h2>
-
-                    </div>
-                    <!-- <h4>Hello, <span id="user">{{u}}</span> </h4>
-                    <h6>OTP has been send to your registered number {{mob}}.</h6> -->
-                    <form action="validate_token" method="post">
-                      {% csrf_token %}
-                        <div id="login_data">
-                            <table>
-                                <tr class="row">
-                                    <div id="r3">
-                                        <td><p class="reg_text">Token Number</p></td>
-                                        <td><input type="text" id="mobile" name="token" class="input" placeholder="Token Number" required onblur="p_error()"></td>
-                                    </div>
-                                </tr>
-                                <tr>
-                                    <td colspan="2"><p id="phone_error" class="error"></p></td>
-                                    <!-- <td colspan="2"><p class="error">{{key_error}}</p></td> -->
-                                </tr>
-                                <tr>
-                                    <td colspan="2"><p class="error">{{key_error}}</p></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2"><p class="error">{{err}}</p></td>
-                                </tr>
-                            </table>
+        
+        <div id="contaniner" class="">          
+            <div id="msg_part">
+                <h2 class="msp">Welcome Back!</h2>
+                <p class="msp2">To keep connected with us please</p>
+                <p class="msp3">login with your personal info.</p>
+<!--                <a href="login.html" class="" id="but2">LOGIN</a>-->
+                <a href="login" id="but2" class="">Login</a>
+<!--                <input type="button" value="SING IN" id="but2" class="">-->
+            </div>
+            <div id="login_part">
+                <div id="login_data">
+                    <h1 id="log">Activating Account</h1>
+                    <form action="validate_token" method="post" id="form_data" class="">
+                         {% csrf_token %}
+                        <div>
+                            <span class="material-icons">comment</span>
+                            <input type="text" name="token" class="inp" id="nam" placeholder="Token Number" required onblur="p_error()">
+                        </div>
+                        
+                        <div>
+                            <p id="pass2_error" class="error">{{err}}</p>
+                            <p id="phone_error" class="error"></p>
+                            <p class="error">{{key_error}}</p>
                             <input type="text" name="username" value="{{u}}" hidden>
                         </div>
-                        <div id="login_data2">
-                            <button type="submit" id="singup_buton" class="but">Enter</button>
-
-                            <div id="extra_link_singup">
-                                <h5 class="ext">Already have an account. <a href="login">Login</a></h5>
-                            </div>
-                        </div>
+                        <input type="submit" name="" value="Validate" class="inp" id="but">
+                        
                     </form>
-
-
                 </div>
             </div>
-            <div id="img_content">
-                <img src={% static 'image/in3.jpg'%}>
+            <div id="last">
+                <a href="login.html" id="but2" class="">Login</a>
             </div>
         </div>
-
-<!--------------------------Footer---------------------------------------------->
-        <footer>
-            <p>Copyright @Neeraj 2019-<span id="footer_year">Current Year</span></p>
-        </footer>
-
+        
         <script>
-            var n = new Date()
-            var s = n.getFullYear()
-            document.getElementById("footer_year").innerText = s
-            console.log(s)
             function p_error(){
-                var ge = document.getElementById("mobile").value;
+                var ge = document.getElementById("nam").value;
 
                 if(ge=="" || ge==" "){
                    console.log(ge);
@@ -100,6 +65,5 @@
                 }
             }
         </script>
-
     </body>
 </html>
