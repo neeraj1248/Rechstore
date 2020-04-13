@@ -1,1 +1,2 @@
-screenshot/*
+media/screenshot/*
+!.screenshot
