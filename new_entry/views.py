@@ -35,7 +35,7 @@ def new_entry(request):
         try:
             pic = request.FILES['pic']
         except KeyError:
-            pic = "/screenshot/No image available.jpg"
+            pic = "/No image available.jpg"
 
         print("User Name : " ,request.user)
         print("Date : " ,date)
