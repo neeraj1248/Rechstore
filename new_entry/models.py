@@ -16,4 +16,4 @@ class Entery(models.Model):
     remark = models.CharField(max_length = 300,null=True,blank=True)
     p_np = models.CharField(max_length = 50)
     ac_id = models.CharField(max_length = 50,null=True,blank=True)
-    screenshot = models.ImageField(upload_to="screenshot",null=True,blank=True)
+    screenshot = models.ImageField(upload_to="",null=True,blank=True)
