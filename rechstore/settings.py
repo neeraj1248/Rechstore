@@ -25,7 +25,7 @@ SECRET_KEY = 'fakuah1q1*#9teau)q%40b=1d_hm^dasw$r2sor=ax^q8=%6*+'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [*]
 
 
 # Application definition
@@ -81,14 +81,24 @@ WSGI_APPLICATION = 'rechstore.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'rechstore',
+#         'USER' : 'root',
+#         'PASSWORD' : '',
+#         'HOST' : 'localhost',
+#         'PORT' : '3306',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'rechstore',
-        'USER' : 'root',
-        'PASSWORD' : '',
+        'USER' : 'postgres',
+        'PASSWORD' : 'neeraj',
         'HOST' : 'localhost',
-        'PORT' : '3306',
     }
 }
 
