@@ -1,0 +1,1 @@
+web: gunicorn rechstore.wsgi --log-file -
