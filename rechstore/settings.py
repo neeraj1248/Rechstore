@@ -25,7 +25,7 @@ SECRET_KEY = 'fakuah1q1*#9teau)q%40b=1d_hm^dasw$r2sor=ax^q8=%6*+'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['rechstore.herokuapp.com' , '127.0.0.1:8000']
+ALLOWED_HOSTS = ['rechstore.herokuapp.com' , '127.0.0.1:8000','rechstore.tech','www.rechstore.tech/']
 
 
 # Application definition
