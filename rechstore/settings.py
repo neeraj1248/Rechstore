@@ -83,12 +83,12 @@ WSGI_APPLICATION = 'rechstore.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
 
 # DATABASES = {
 #     'default': {
@@ -110,6 +110,17 @@ DATABASES = {
 #         'HOST' : 'localhost',
 #     }
 # }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd75dld184a0ko6',
+        'USER' : 'hjcwljliwrabwa',
+        'PASSWORD' : 'a0006f6335aae65b6dd48f13cc39e98bb3c3a37264d90ab7525119968ede7e90',
+        'HOST' : 'ec2-34-204-22-76.compute-1.amazonaws.com',
+        'PORT': 5432,
+    }
+}
 
 
 # Password validation
